@@ -17,7 +17,9 @@ app.post("/checkout", async (req, res) => {
                 currency: 'usd',
                 product_data: {
                     name: item.productName,
-                    images: [item.image]
+                    description: `Size: ${item.size}, Color: ${item.color}`,
+                    images: [item.image],
+
                 },
                 unit_amount: item.price * 100,
             },
@@ -34,6 +36,7 @@ app.post("/checkout", async (req, res) => {
             },
             success_url: `${originUrl}/thank-you`,
             cancel_url: `${originUrl}/cancel`,
+
         });
 
 
